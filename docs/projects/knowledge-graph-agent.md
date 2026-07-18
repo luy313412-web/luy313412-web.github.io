@@ -1,129 +1,336 @@
----
-title: Knowledge Graph Agent
-description: AI 工程项目展示模板：知识图谱 Agent
-outline: deep
----
+# 知识图谱招投标资格审查与项目匹配 Agent
 
-# Knowledge Graph Agent
+## 1. 项目概述
 
-> Status: `Planning / In Progress / Production` · Role: `TBD` · Timeline: `YYYY.MM — YYYY.MM`
+该项目面向企业投标前资格审查场景，构建基于知识图谱与大语言模型的智能分析
+Agent。
 
-## Overview
+系统通过解析招标文件、企业资质材料、人员证书、历史业绩等信息，结合知识图谱推理能力，辅助企业判断项目匹配度、识别资格风险，并生成投标准备建议。
 
-<!-- 用 2～3 句话说明项目处理的知识任务、图谱与 Agent 的作用，以及可验证结果。 -->
+核心目标：
 
-| Item | Details |
-| --- | --- |
-| Problem | `TBD` |
-| Target users | `TBD` |
-| Graph scope | `TBD` |
-| Responsibilities | `TBD` |
-| Technology stack | `TBD` |
-| Outcome | `TBD（使用可验证结果，避免笼统描述）` |
+-   降低人工审查成本；
+-   提升招标条件匹配效率；
+-   提前发现废标风险；
+-   沉淀企业投标知识。
 
-## Business Background
+------------------------------------------------------------------------
 
-### Context
+## 2. 业务背景
 
-<!-- 描述知识关系、查询流程和项目启动前的处理方式。 -->
+企业参与招投标时，需要人工检查大量信息：
 
-### Pain Points
+-   企业资质要求；
+-   人员证书要求；
+-   项目业绩要求；
+-   技术能力要求；
+-   时间和地域限制。
 
-- `待填写：关系型知识查询或推理方面的问题`
-- `待填写：数据质量、解释性或维护方面的限制`
-- `待填写：为什么现有方案无法满足需求`
+传统方式：
 
-### Goals and Non-goals
+    读取招标文件
 
-| Goals | Non-goals |
-| --- | --- |
-| `TBD` | `TBD` |
+    ↓
 
-## System Architecture
+    人工整理资格条件
 
-<!-- 将占位节点替换为真实组件，并说明图谱构建与在线 Agent 推理的边界。 -->
+    ↓
 
-```mermaid
-flowchart LR
-    A[Data Sources] --> B[Extraction and Validation]
-    B --> C[(Knowledge Graph)]
-    D[User Query] --> E[Agent Planner]
-    E --> F[Graph Query Tool]
-    F --> C
-    C --> F
-    F --> E
-    E --> G[LLM Service]
-    G --> H[Answer with Evidence]
-    E --> I[Tracing and Evaluation]
+    查询企业资料
+
+    ↓
+
+    逐项比对
+
+    ↓
+
+    形成审核结果
+
+存在：
+
+-   文档数量大；
+-   条件关系复杂；
+-   人工容易遗漏；
+-   历史经验无法复用。
+
+因此引入知识图谱和 Agent，实现结构化知识管理与智能分析。
+
+------------------------------------------------------------------------
+
+## 3. 系统架构
+
+``` mermaid
+flowchart TB
+
+User[用户]
+
+API[FastAPI]
+
+Agent[资格审查Agent]
+
+
+Parser[文档解析]
+
+LLM[信息抽取LLM]
+
+Graph[(Neo4j知识图谱)]
+
+Vector[(FAISS向量库)]
+
+Retriever[实体检索]
+
+Text2Cypher[Text2Cypher]
+
+
+User --> API
+
+API --> Agent
+
+Agent --> Parser
+
+Parser --> LLM
+
+LLM --> Graph
+
+Agent --> Retriever
+
+Retriever --> Vector
+
+Agent --> Text2Cypher
+
+Text2Cypher --> Graph
 ```
 
-### Component Responsibilities
+------------------------------------------------------------------------
 
-| Component | Responsibility | Interface / Protocol |
-| --- | --- | --- |
-| `TBD` | `TBD` | `TBD` |
+## 4. 知识图谱设计
 
-## Core Workflow
+系统将企业投标相关信息转换为结构化知识。
 
-1. **Graph preparation** — `描述 Schema、抽取、实体对齐和质量校验。`
-2. **Query understanding** — `描述意图识别、实体解析和约束提取。`
-3. **Planning and execution** — `描述图查询生成、校验、执行和重试。`
-4. **Evidence synthesis** — `描述路径选择、证据聚合和答案生成。`
-5. **Validation and feedback** — `描述结果验证、审计记录和反馈闭环。`
+核心实体：
 
-### Failure Paths
+  实体   说明
+  ------ ----------------
+  企业   投标主体
+  项目   招标项目
+  资质   企业能力证明
+  人员   项目人员要求
+  证书   人员或企业证书
+  业绩   历史项目经验
+  要求   招标条件
 
-<!-- 补充实体歧义、查询失败、图谱缺失、循环调用和权限拒绝处理。 -->
+关系示例：
 
-## Technical Design
+    企业
+     |
+    拥有
+     |
+    资质
 
-### Graph Modeling
 
-<!-- 描述 Schema、实体与关系约束、数据溯源和版本演进。 -->
+    企业
+     |
+    参与
+     |
+    项目
 
-### Agent Reasoning
 
-<!-- 描述规划策略、图查询工具、语法校验、多跳检索和终止条件。 -->
+    人员
+     |
+    持有
+     |
+    证书
 
-### Reliability and Observability
+通过图结构表达复杂业务关系。
 
-<!-- 描述只读边界、查询限制、审计、Trace、指标和异常检测。 -->
+------------------------------------------------------------------------
 
-### Key Decisions
+## 5. Agent Workflow
 
-| Decision | Alternatives | Rationale | Trade-off |
-| --- | --- | --- | --- |
-| `TBD` | `TBD` | `TBD` | `TBD` |
+整体流程：
 
-## Engineering Challenges
+    用户输入项目需求
 
-| Challenge | Why It Matters | Approach | Remaining Risk |
-| --- | --- | --- | --- |
-| `TBD` | `TBD` | `TBD` | `TBD` |
+    ↓
 
-<!-- 建议覆盖实体消歧、Schema 演进、多跳推理、查询安全和可解释性等真实挑战。 -->
+    解析招标文件
 
-## Evaluation
+    ↓
 
-### Evaluation Setup
+    抽取资格条件
 
-<!-- 说明查询集、图谱快照、基线、人工标注、通过标准和回归机制。 -->
+    ↓
 
-| Metric | Definition | Baseline | Result | Target |
-| --- | --- | ---: | ---: | ---: |
-| Query execution success | `TBD` | — | — | — |
-| Path / answer accuracy | `TBD` | — | — | — |
-| Evidence coverage | `TBD` | — | — | — |
-| P95 latency | `TBD` | — | — | — |
+    查询知识图谱
 
-### Result Analysis
+    ↓
 
-<!-- 分析规划、图查询和答案生成阶段的错误，以及结论适用边界。 -->
+    匹配企业信息
 
-## Lessons Learned
+    ↓
 
-- **What worked:** `TBD`
-- **What did not work:** `TBD`
-- **Key trade-off:** `TBD`
-- **Reusable insight:** `TBD`
-- **Next iteration:** `TBD`
+    分析风险
+
+    ↓
+
+    生成审核报告
+
+Agent负责：
+
+-   任务理解；
+-   工具选择；
+-   查询规划；
+-   结果总结。
+
+------------------------------------------------------------------------
+
+## 6. Text2Cypher 查询设计
+
+用户自然语言：
+
+    查询满足一级资质，并且近三年具有类似项目经验的企业
+
+转换为：
+
+    自然语言
+
+    ↓
+
+    LLM生成Cypher
+
+    ↓
+
+    语法校验
+
+    ↓
+
+    Neo4j查询
+
+    ↓
+
+    返回结果
+
+相比人工编写查询：
+
+优势：
+
+-   降低查询门槛；
+-   支持复杂条件组合；
+-   提升业务人员使用效率。
+
+------------------------------------------------------------------------
+
+## 7. 向量检索增强
+
+知识图谱主要负责结构化关系查询。
+
+对于：
+
+-   文档内容；
+-   非结构化描述；
+-   相似案例；
+
+采用向量检索补充。
+
+流程：
+
+    文档
+
+    ↓
+
+    Embedding
+
+    ↓
+
+    FAISS
+
+    ↓
+
+    相似内容召回
+
+    ↓
+
+    结合图谱分析
+
+形成：
+
+    知识图谱
+    +
+    向量检索
+    +
+    LLM推理
+
+的混合架构。
+
+------------------------------------------------------------------------
+
+## 8. 风险分析与结果生成
+
+系统输出：
+
+-   项目匹配度；
+-   缺失资质；
+-   人员缺口；
+-   业绩不足；
+-   潜在废标风险；
+-   补充建议。
+
+通过结构化输出保证结果格式稳定。
+
+------------------------------------------------------------------------
+
+## 9. 工程挑战
+
+### 为什么使用知识图谱？
+
+传统RAG擅长文本检索，但对于：
+
+-   企业关系；
+-   证书关系；
+-   项目关联；
+
+等结构化关系查询能力有限。
+
+知识图谱可以显式表达实体和关系。
+
+------------------------------------------------------------------------
+
+### 为什么不是纯Text2Cypher？
+
+直接生成Cypher存在：
+
+-   语法错误；
+-   查询风险；
+-   错误关系推理。
+
+因此增加：
+
+-   Schema约束；
+-   查询校验；
+-   Agent流程控制。
+
+------------------------------------------------------------------------
+
+### 如何降低模型幻觉？
+
+通过：
+
+-   图谱事实约束；
+-   查询结果作为上下文；
+-   结构化输出；
+-   规则校验。
+
+------------------------------------------------------------------------
+
+## 10. 总结
+
+知识图谱招投标资格审查 Agent 将：
+
+-   企业知识结构化；
+-   图谱关系推理；
+-   向量语义检索；
+-   LLM智能分析；
+
+结合起来，实现面向企业投标场景的智能辅助决策。
+
+该项目体现了大模型应用从文本问答向业务知识推理系统演进的工程实践。
