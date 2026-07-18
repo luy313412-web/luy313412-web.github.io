@@ -110,24 +110,46 @@ export default defineConfig({
 
 
       '/thinking/': [
-        {
-          text: '技术思考',
-          items: [
-            {
-              text: 'AI趋势',
-              link: '/thinking/ai-trend'
-            },
-            {
-              text: '工程理解',
-              link: '/thinking/engineering'
-            },
-            {
-              text: '技术观点',
-              link: '/thinking/viewpoints'
-            }
-          ]
-        }
-      ],
+  {
+    text: 'AI趋势',
+    items: [
+      {
+        text: 'AI从模型竞争走向工程竞争',
+        link: '/thinking/ai-development-direction'
+      },
+      {
+        text: '为什么Agent成为AI应用的重要方向',
+        link: '/thinking/agent-trend'
+      }
+    ]
+  },
+  {
+    text: '工程理解',
+    items: [
+      {
+        text: 'RAG不只是向量搜索',
+        link: '/thinking/rag-engineering'
+      },
+      {
+        text: '从Demo到生产级Agent',
+        link: '/thinking/agent-engineering'
+      }
+    ]
+  },
+  {
+    text: '技术观点',
+    items: [
+      {
+        text: '固定流程和自主Agent如何选择',
+        link: '/thinking/workflow-vs-agent'
+      },
+      {
+        text: 'AI工程师未来需要哪些能力',
+        link: '/thinking/ai-engineer-future'
+      }
+    ]
+  }
+],
 
 
       '/backend/': [
