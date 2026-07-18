@@ -1,66 +1,128 @@
 ---
-title: 工业智能 Agent
-description: 工业智能 Agent 项目案例模板
+title: Industrial Equipment Diagnosis Agent
+description: AI 工程项目展示模板：工业设备诊断 Agent
 outline: deep
 ---
 
-# 工业智能 Agent
+# Industrial Equipment Diagnosis Agent
 
-> 项目状态：`规划中 / 开发中 / 已上线` · 个人职责：`待填写` · 时间：`YYYY.MM — YYYY.MM`
+> Status: `Planning / In Progress / Production` · Role: `TBD` · Timeline: `YYYY.MM — YYYY.MM`
 
-## 项目概览
+## Overview
 
-<!-- 用 2～3 句话说明业务场景、目标用户、核心问题与最终成果。 -->
+<!-- 用 2～3 句话说明项目解决的问题、采用 Agent 的原因，以及可验证的交付结果。 -->
 
-| 项目维度 | 内容 |
+| Item | Details |
 | --- | --- |
-| 业务场景 | 待填写 |
-| 核心目标 | 待填写 |
-| 技术栈 | 待填写 |
-| 关键指标 | 待填写 |
+| Problem | `TBD` |
+| Target users | `TBD` |
+| Scope | `TBD` |
+| Responsibilities | `TBD` |
+| Technology stack | `TBD` |
+| Outcome | `TBD（使用可验证结果，避免笼统描述）` |
 
-## 问题与约束
+## Business Background
 
-<!-- 说明原始流程、主要痛点，以及数据、安全、实时性或系统集成约束。 -->
+### Context
 
-## 方案架构
+<!-- 描述现有诊断流程、参与角色和项目触发原因。 -->
 
-<!-- 插入架构图，并说明 Agent、工具、模型、状态与外部系统之间的关系。 -->
+### Pain Points
 
-## 核心设计
+- `待填写：当前流程中的主要问题`
+- `待填写：信息、效率或协作方面的限制`
+- `待填写：为什么现有方案无法满足需求`
 
-### 任务规划与执行
+### Goals and Non-goals
 
-<!-- 描述规划方式、执行循环、终止条件与异常恢复。 -->
+| Goals | Non-goals |
+| --- | --- |
+| `TBD` | `TBD` |
 
-### 工具与系统集成
+## System Architecture
 
-<!-- 描述工具接口、权限控制、超时重试与幂等性设计。 -->
+<!-- 将占位节点替换为真实组件，并在图后说明组件边界、数据流和部署边界。 -->
 
-### 记忆与上下文管理
+```mermaid
+flowchart LR
+    A[User or System Input] --> B[Agent Orchestrator]
+    B --> C[Diagnostic Knowledge]
+    B --> D[Domain Tools]
+    B --> E[LLM Service]
+    C --> B
+    D --> B
+    E --> B
+    B --> F[Validated Output]
+    B --> G[Tracing and Evaluation]
+```
 
-<!-- 描述短期状态、长期记忆和上下文压缩策略。 -->
+### Component Responsibilities
 
-## 工程实现
+| Component | Responsibility | Interface / Protocol |
+| --- | --- | --- |
+| `TBD` | `TBD` | `TBD` |
 
-<!-- 记录关键模块、接口约定、部署方式与可观测性设计。 -->
+## Core Workflow
 
-## 评估与结果
+1. **Input validation** — `描述输入、前置校验和拒绝条件。`
+2. **Task planning** — `描述任务如何拆解，以及何时重新规划。`
+3. **Knowledge and tool execution** — `描述检索或工具调用顺序。`
+4. **Result verification** — `描述证据检查、规则校验和人工介入点。`
+5. **Response and feedback** — `描述输出格式、反馈采集和状态闭环。`
 
-| 指标 | 基线 | 当前结果 | 评估方法 |
-| --- | ---: | ---: | --- |
-| 任务成功率 | — | — | 待填写 |
-| 平均响应时间 | — | — | 待填写 |
-| 单任务成本 | — | — | 待填写 |
+### Failure Paths
 
-## 难点与取舍
+<!-- 补充超时、工具失败、证据不足、模型异常和降级处理。 -->
 
-<!-- 说明至少一个关键技术决策、备选方案及选择理由。 -->
+## Technical Design
 
-## 复现与演示
+### Agent Runtime
 
-<!-- 补充代码仓库、演示地址、运行步骤与必要的环境说明。 -->
+<!-- 描述规划模式、状态机、终止条件、上下文管理与恢复策略。 -->
 
-## 复盘与下一步
+### Tool Integration
 
-<!-- 总结经验、当前边界与下一阶段计划。 -->
+<!-- 描述工具契约、权限、超时、重试、幂等和结果校验。 -->
+
+### Reliability and Observability
+
+<!-- 描述日志、Trace、指标、告警、安全边界与人工接管。 -->
+
+### Key Decisions
+
+| Decision | Alternatives | Rationale | Trade-off |
+| --- | --- | --- | --- |
+| `TBD` | `TBD` | `TBD` | `TBD` |
+
+## Engineering Challenges
+
+| Challenge | Why It Matters | Approach | Remaining Risk |
+| --- | --- | --- | --- |
+| `TBD` | `TBD` | `TBD` | `TBD` |
+
+<!-- 建议覆盖非确定性输出、工具可靠性、上下文限制和系统集成等真实挑战。 -->
+
+## Evaluation
+
+### Evaluation Setup
+
+<!-- 说明评测数据来源、样本范围、基线、通过标准和回归机制。 -->
+
+| Metric | Definition | Baseline | Result | Target |
+| --- | --- | ---: | ---: | ---: |
+| Task success rate | `TBD` | — | — | — |
+| Diagnostic quality | `TBD` | — | — | — |
+| P95 latency | `TBD` | — | — | — |
+| Cost per task | `TBD` | — | — | — |
+
+### Result Analysis
+
+<!-- 分析成功案例、失败样本、指标变化和结论适用边界。 -->
+
+## Lessons Learned
+
+- **What worked:** `TBD`
+- **What did not work:** `TBD`
+- **Key trade-off:** `TBD`
+- **Reusable insight:** `TBD`
+- **Next iteration:** `TBD`

@@ -1,73 +1,129 @@
 ---
-title: 知识图谱 Agent
-description: 知识图谱 Agent 项目案例模板
+title: Knowledge Graph Agent
+description: AI 工程项目展示模板：知识图谱 Agent
 outline: deep
 ---
 
-# 知识图谱 Agent
+# Knowledge Graph Agent
 
-> 项目状态：`规划中 / 开发中 / 已上线` · 个人职责：`待填写` · 时间：`YYYY.MM — YYYY.MM`
+> Status: `Planning / In Progress / Production` · Role: `TBD` · Timeline: `YYYY.MM — YYYY.MM`
 
-## 项目概览
+## Overview
 
-<!-- 用 2～3 句话说明目标用户、图谱场景、核心任务与项目价值。 -->
+<!-- 用 2～3 句话说明项目处理的知识任务、图谱与 Agent 的作用，以及可验证结果。 -->
 
-| 项目维度 | 内容 |
+| Item | Details |
 | --- | --- |
-| 图谱规模 | 待填写 |
-| 核心任务 | 待填写 |
-| 技术栈 | 待填写 |
-| 关键指标 | 待填写 |
+| Problem | `TBD` |
+| Target users | `TBD` |
+| Graph scope | `TBD` |
+| Responsibilities | `TBD` |
+| Technology stack | `TBD` |
+| Outcome | `TBD（使用可验证结果，避免笼统描述）` |
 
-## 问题与约束
+## Business Background
 
-<!-- 说明多跳推理、实体歧义、Schema 变化、数据质量或访问权限等挑战。 -->
+### Context
 
-## 方案架构
+<!-- 描述知识关系、查询流程和项目启动前的处理方式。 -->
 
-<!-- 插入 Agent、图数据库、检索工具、模型与业务系统的架构图。 -->
+### Pain Points
 
-## 图谱构建
+- `待填写：关系型知识查询或推理方面的问题`
+- `待填写：数据质量、解释性或维护方面的限制`
+- `待填写：为什么现有方案无法满足需求`
 
-### Schema 与数据建模
+### Goals and Non-goals
 
-<!-- 描述实体、关系、属性、约束与版本演进方式。 -->
+| Goals | Non-goals |
+| --- | --- |
+| `TBD` | `TBD` |
 
-### 实体与关系抽取
+## System Architecture
 
-<!-- 描述抽取、消歧、对齐、质量校验与增量更新。 -->
+<!-- 将占位节点替换为真实组件，并说明图谱构建与在线 Agent 推理的边界。 -->
 
-## Agent 推理
+```mermaid
+flowchart LR
+    A[Data Sources] --> B[Extraction and Validation]
+    B --> C[(Knowledge Graph)]
+    D[User Query] --> E[Agent Planner]
+    E --> F[Graph Query Tool]
+    F --> C
+    C --> F
+    F --> E
+    E --> G[LLM Service]
+    G --> H[Answer with Evidence]
+    E --> I[Tracing and Evaluation]
+```
 
-### 查询规划
+### Component Responsibilities
 
-<!-- 描述自然语言到图查询的规划、校验与纠错流程。 -->
+| Component | Responsibility | Interface / Protocol |
+| --- | --- | --- |
+| `TBD` | `TBD` | `TBD` |
 
-### 多跳检索与证据
+## Core Workflow
 
-<!-- 描述路径搜索、工具调用、证据聚合与可解释输出。 -->
+1. **Graph preparation** — `描述 Schema、抽取、实体对齐和质量校验。`
+2. **Query understanding** — `描述意图识别、实体解析和约束提取。`
+3. **Planning and execution** — `描述图查询生成、校验、执行和重试。`
+4. **Evidence synthesis** — `描述路径选择、证据聚合和答案生成。`
+5. **Validation and feedback** — `描述结果验证、审计记录和反馈闭环。`
 
-## 评估与结果
+### Failure Paths
 
-| 指标 | 基线 | 当前结果 | 评估方法 |
-| --- | ---: | ---: | --- |
-| 查询执行成功率 | — | — | 待填写 |
-| 路径 / 答案准确率 | — | — | 待填写 |
-| 平均工具调用次数 | — | — | 待填写 |
-| P95 延迟 | — | — | 待填写 |
+<!-- 补充实体歧义、查询失败、图谱缺失、循环调用和权限拒绝处理。 -->
 
-## 安全与可观测性
+## Technical Design
 
-<!-- 说明只读边界、查询限制、审计日志、追踪与异常检测。 -->
+### Graph Modeling
 
-## 难点与取舍
+<!-- 描述 Schema、实体与关系约束、数据溯源和版本演进。 -->
 
-<!-- 对比图检索与向量检索等备选方案，并解释最终选择。 -->
+### Agent Reasoning
 
-## 复现与演示
+<!-- 描述规划策略、图查询工具、语法校验、多跳检索和终止条件。 -->
 
-<!-- 补充代码仓库、演示地址、示例查询与运行步骤。 -->
+### Reliability and Observability
 
-## 复盘与下一步
+<!-- 描述只读边界、查询限制、审计、Trace、指标和异常检测。 -->
 
-<!-- 总结经验、当前边界与下一阶段计划。 -->
+### Key Decisions
+
+| Decision | Alternatives | Rationale | Trade-off |
+| --- | --- | --- | --- |
+| `TBD` | `TBD` | `TBD` | `TBD` |
+
+## Engineering Challenges
+
+| Challenge | Why It Matters | Approach | Remaining Risk |
+| --- | --- | --- | --- |
+| `TBD` | `TBD` | `TBD` | `TBD` |
+
+<!-- 建议覆盖实体消歧、Schema 演进、多跳推理、查询安全和可解释性等真实挑战。 -->
+
+## Evaluation
+
+### Evaluation Setup
+
+<!-- 说明查询集、图谱快照、基线、人工标注、通过标准和回归机制。 -->
+
+| Metric | Definition | Baseline | Result | Target |
+| --- | --- | ---: | ---: | ---: |
+| Query execution success | `TBD` | — | — | — |
+| Path / answer accuracy | `TBD` | — | — | — |
+| Evidence coverage | `TBD` | — | — | — |
+| P95 latency | `TBD` | — | — | — |
+
+### Result Analysis
+
+<!-- 分析规划、图查询和答案生成阶段的错误，以及结论适用边界。 -->
+
+## Lessons Learned
+
+- **What worked:** `TBD`
+- **What did not work:** `TBD`
+- **Key trade-off:** `TBD`
+- **Reusable insight:** `TBD`
+- **Next iteration:** `TBD`

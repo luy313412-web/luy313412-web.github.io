@@ -1,73 +1,129 @@
 ---
-title: LLM 优化
-description: LLM 优化项目案例模板
+title: LLM Optimization
+description: AI 工程项目展示模板：大语言模型优化
 outline: deep
 ---
 
-# LLM 优化
+# LLM Optimization
 
-> 项目状态：`规划中 / 实验中 / 已上线` · 个人职责：`待填写` · 时间：`YYYY.MM — YYYY.MM`
+> Status: `Planning / Experimenting / Production` · Role: `TBD` · Timeline: `YYYY.MM — YYYY.MM`
 
-## 项目概览
+## Overview
 
-<!-- 用 2～3 句话说明目标任务、基线模型、优化目标与最终成果。 -->
+<!-- 用 2～3 句话说明目标任务、优化动机、方案范围和可验证结果。 -->
 
-| 项目维度 | 内容 |
+| Item | Details |
 | --- | --- |
-| 目标任务 | 待填写 |
-| 基线模型 | 待填写 |
-| 优化方法 | 待填写 |
-| 关键指标 | 待填写 |
+| Target task | `TBD` |
+| Baseline | `TBD` |
+| Optimization scope | `TBD` |
+| Responsibilities | `TBD` |
+| Technology stack | `TBD` |
+| Outcome | `TBD（使用可验证结果，避免笼统描述）` |
 
-## 问题与约束
+## Business Background
 
-<!-- 说明质量、延迟、吞吐、显存、成本、数据与部署环境等约束。 -->
+### Context
 
-## 优化方案
+<!-- 描述模型所服务的任务、现有方案和优化项目的触发原因。 -->
 
-<!-- 插入数据、训练、评估、压缩与部署的完整流程图。 -->
+### Pain Points
 
-## 数据与评估设计
+- `待填写：质量、延迟、吞吐或成本方面的问题`
+- `待填写：数据、硬件或部署环境方面的限制`
+- `待填写：为什么现有方案无法满足需求`
 
-### 数据集
+### Goals and Non-goals
 
-<!-- 描述数据来源、清洗、划分、质量控制与合规边界。 -->
+| Goals | Non-goals |
+| --- | --- |
+| `TBD` | `TBD` |
 
-### 评估体系
+## System Architecture
 
-<!-- 描述离线数据集、自动指标、人工评测与回归测试。 -->
+<!-- 将占位节点替换为真实组件，并区分离线实验链路与在线推理链路。 -->
 
-## 实验过程
+```mermaid
+flowchart LR
+    A[Data and Tasks] --> B[Dataset Pipeline]
+    B --> C[Training or Adaptation]
+    C --> D[Candidate Model]
+    D --> E[Offline Evaluation]
+    E --> F[Model Registry]
+    G[Application Request] --> H[Inference Service]
+    F --> H
+    H --> I[Application Response]
+    H --> J[Monitoring and Feedback]
+    J --> B
+```
 
-### 模型与训练
+### Component Responsibilities
 
-<!-- 描述模型选择、训练策略、超参数与实验管理。 -->
+| Component | Responsibility | Interface / Protocol |
+| --- | --- | --- |
+| `TBD` | `TBD` | `TBD` |
 
-### 推理与部署优化
+## Core Workflow
 
-<!-- 描述量化、缓存、批处理、并行、服务框架与硬件环境。 -->
+1. **Baseline establishment** — `描述任务、数据、模型和初始指标。`
+2. **Experiment design** — `描述假设、变量、对照组和通过标准。`
+3. **Training or adaptation** — `描述数据处理、训练或模型压缩流程。`
+4. **Evaluation and selection** — `描述质量、性能、成本评测和模型选择。`
+5. **Deployment and monitoring** — `描述发布、灰度、回滚和反馈闭环。`
 
-## 评估与结果
+### Failure Paths
 
-| 指标 | 基线 | 优化后 | 变化 |
-| --- | ---: | ---: | ---: |
-| 任务质量 | — | — | — |
-| P95 延迟 | — | — | — |
-| 吞吐量 | — | — | — |
-| 单位请求成本 | — | — | — |
+<!-- 补充训练失败、质量回退、资源不足、服务异常和回滚处理。 -->
 
-## 消融实验
+## Technical Design
 
-<!-- 分离关键变量，说明每项优化对质量、性能与成本的实际贡献。 -->
+### Data and Experimentation
 
-## 难点与取舍
+<!-- 描述数据来源、清洗、划分、版本、实验追踪和可复现性。 -->
 
-<!-- 说明质量、延迟、成本之间的关键权衡和选择依据。 -->
+### Model and Inference
 
-## 复现与演示
+<!-- 描述模型选择、训练策略、量化、缓存、批处理、并行和服务框架。 -->
 
-<!-- 补充代码仓库、模型版本、运行环境、命令与复现实验步骤。 -->
+### Reliability and Observability
 
-## 复盘与下一步
+<!-- 描述模型版本、发布策略、质量监控、性能指标、告警和回滚。 -->
 
-<!-- 总结经验、当前边界与下一阶段计划。 -->
+### Key Decisions
+
+| Decision | Alternatives | Rationale | Trade-off |
+| --- | --- | --- | --- |
+| `TBD` | `TBD` | `TBD` | `TBD` |
+
+## Engineering Challenges
+
+| Challenge | Why It Matters | Approach | Remaining Risk |
+| --- | --- | --- | --- |
+| `TBD` | `TBD` | `TBD` | `TBD` |
+
+<!-- 建议覆盖数据质量、实验可复现性、资源约束和质量—性能权衡等真实挑战。 -->
+
+## Evaluation
+
+### Evaluation Setup
+
+<!-- 说明数据划分、基线模型、自动与人工评测、硬件环境和回归机制。 -->
+
+| Metric | Definition | Baseline | Result | Target |
+| --- | --- | ---: | ---: | ---: |
+| Task quality | `TBD` | — | — | — |
+| P95 latency | `TBD` | — | — | — |
+| Throughput | `TBD` | — | — | — |
+| Cost per request | `TBD` | — | — | — |
+
+### Ablation and Result Analysis
+
+<!-- 分离关键变量，说明各项优化的贡献、失败实验和结论适用边界。 -->
+
+## Lessons Learned
+
+- **What worked:** `TBD`
+- **What did not work:** `TBD`
+- **Key trade-off:** `TBD`
+- **Reusable insight:** `TBD`
+- **Next iteration:** `TBD`
