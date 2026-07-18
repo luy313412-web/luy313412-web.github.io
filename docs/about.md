@@ -1,33 +1,131 @@
----
-title: About
-description: AI Engineering Portfolio 的技术定位、工程方向与实践方法
----
-
 # About
 
-AI Engineering Portfolio 聚焦可落地、可评估、可演进的智能系统，记录 Agent、RAG 与 LLM Engineering 从方案设计到生产实践的完整过程。
+## AI Engineer Portfolio
 
-## 技术方向
+专注于企业级 AI 应用开发与大模型工程实践。
+
+主要方向：
+
+- AI Agent 系统设计
+- 企业级 RAG 架构
+- LLM Application Engineering
+- 大模型应用工程化落地
+
+
+---
+
+## Technical Focus
 
 ### Agent Engineering
 
-围绕任务规划、工具调用、状态管理、记忆机制与多步骤工作流，探索智能体系统在复杂业务场景中的可靠执行与安全边界。
+关注：
+
+- Agent Workflow 设计
+- LangGraph 状态管理
+- Tool Calling
+- MCP 工具扩展
+- Memory 管理
+- Agent 可靠性设计
+
 
 ### RAG Engineering
 
-覆盖文档解析与切分、索引构建、混合检索、重排、上下文组装、答案引用和端到端评估，关注知识系统的准确性与可维护性。
+关注：
+
+- 文档解析与知识治理
+- Embedding 模型优化
+- Hybrid Search
+- Reranking
+- RAG Evaluation
+- 企业知识库建设
+
 
 ### LLM Engineering
 
-关注模型选型、提示设计、数据构建、微调、推理优化和可观测性，在质量、延迟、成本与工程复杂度之间取得平衡。
+关注：
 
-## 工程方法
+- Prompt Engineering
+- Structured Output
+- 模型调用优化
+- SFT / LoRA
+- 模型蒸馏与轻量化部署
 
-- 从真实问题和约束出发，明确系统目标与质量边界。
-- 使用可复现的实验和评估指标验证方案，而不是只依赖主观效果。
-- 将数据、模型、检索、服务和监控作为完整系统协同设计。
-- 记录关键决策、失败路径与迭代过程，沉淀可复用的工程经验。
 
-## 内容范围
+---
 
-本站内容包括技术架构、项目实践、实验评估、性能优化与工程复盘，重点展示 AI 系统如何从原型走向稳定、可维护的应用。
+## Technical Stack
+
+### AI Framework
+
+- LangChain
+- LangGraph
+- MCP
+- LLM API
+
+
+### Retrieval System
+
+- Milvus
+- FAISS
+- BGE-M3
+- BGE-Reranker
+
+
+### Backend
+
+- Python
+- FastAPI
+- PostgreSQL
+- Redis
+- Docker
+
+
+### Development
+
+- Git
+- Linux
+- CI/CD
+- GitHub Actions
+
+
+---
+
+## Engineering Philosophy
+
+关注 AI 系统从 Demo 到生产环境的工程化过程：
+
+- 可控的 Agent 工作流
+- 稳定的知识检索能力
+- 可评估的模型效果
+- 可维护的系统架构
+- 可持续优化的 AI 应用
+
+
+---
+
+## Featured Projects
+
+### Industrial Equipment Diagnosis Agent
+
+基于 Agent、RAG 和工具调用的工业设备智能诊断辅助系统。
+
+### Enterprise RAG Platform
+
+面向企业知识管理场景的检索增强生成系统。
+
+### Knowledge Graph Agent
+
+结合知识图谱与 LLM 的企业智能分析系统。
+
+### LLM Optimization
+
+探索大模型领域适配、优化与轻量化技术。
+
+
+---
+
+## Contact
+
+GitHub:
+
+https://github.com/luy313412-web

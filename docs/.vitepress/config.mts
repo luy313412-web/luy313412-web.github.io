@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 
-const githubUrl = 'https://github.com/your-username'
+const githubUrl = 'https://github.com/luy313412-web'
 
 export default defineConfig({
   lang: 'zh-CN',
@@ -11,7 +11,7 @@ export default defineConfig({
 
   head: [
     ['meta', { name: 'theme-color', content: '#5b5bd6' }],
-    ['meta', { name: 'author', content: 'Your Name' }],
+   ['meta', { name: 'author', content: 'AI Engineer' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'AI Engineering Portfolio' }],
     [
@@ -105,7 +105,7 @@ export default defineConfig({
     darkModeSwitchTitle: '切换到深色模式',
     footer: {
       message: '专注于可落地、可评估、可演进的 AI 工程实践。',
-      copyright: 'Copyright © 2026 Your Name'
+      copyright: 'Copyright © 2026 AI Engineering Portfolio'
     }
   }
 })
