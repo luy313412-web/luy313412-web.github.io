@@ -1,0 +1,14 @@
+{
+  "name": "ai-engineering-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "基于 VitePress 的 AI Engineering Portfolio 技术博客",
+  "scripts": {
+    "docs:dev": "vitepress docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
