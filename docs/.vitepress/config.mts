@@ -42,8 +42,21 @@ export default defineConfig({
       { text: 'RAG', link: '/rag/' },
 
       { text: 'LLM', link: '/llm/' },
-
-      {
+{
+  text: '技术文章',
+  items: [
+    { text: 'Agent记忆机制', link: '/articles/agent-memory' },
+    { text: '上下文管理', link: '/articles/context-management' },
+    { text: 'RAG评测体系', link: '/articles/rag-evaluation' },
+    { text: 'Agent安全', link: '/articles/prompt-injection' },
+    { text: 'MCP与工具调用', link: '/articles/mcp-tool-calling' },
+    { text: '模型选择', link: '/articles/model-selection' },
+    { text: 'AI系统架构', link: '/articles/ai-system-architecture' },
+    { text: '生产级AI系统', link: '/articles/production-ai' }
+  ]
+}
+      ,
+{
         text: '技术思考',
         items: [
           { text: 'AI趋势', link: '/thinking/ai-trend' },
@@ -51,7 +64,6 @@ export default defineConfig({
           { text: '技术观点', link: '/thinking/viewpoints' }
         ]
       },
-
       {
         text: '更多',
         items: [
@@ -77,7 +89,45 @@ export default defineConfig({
           ]
         }
       ],
-
+'/articles/': [
+  {
+    text: 'AI工程文章',
+    items: [
+      {
+        text: 'Agent记忆机制',
+        link: '/articles/agent-memory'
+      },
+      {
+        text: '上下文管理',
+        link: '/articles/context-management'
+      },
+      {
+        text: 'RAG评测体系',
+        link: '/articles/rag-evaluation'
+      },
+      {
+        text: 'Agent安全与Prompt Injection',
+        link: '/articles/prompt-injection'
+      },
+      {
+        text: 'MCP与工具调用',
+        link: '/articles/mcp-tool-calling'
+      },
+      {
+        text: '模型选择',
+        link: '/articles/model-selection'
+      },
+      {
+        text: 'AI系统架构',
+        link: '/articles/ai-system-architecture'
+      },
+      {
+        text: '生产级AI系统',
+        link: '/articles/production-ai'
+      }
+    ]
+  }
+],
 
       '/agent/': [
         {
