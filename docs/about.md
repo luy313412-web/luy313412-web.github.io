@@ -1,131 +1,125 @@
-# About
+# 关于
 
-## AI Engineer Portfolio
+## 技术方向
 
-专注于企业级 AI 应用开发与大模型工程实践。
+专注于人工智能应用开发和大模型系统工程实践。
 
-主要方向：
+主要关注：
 
-- AI Agent 系统设计
-- 企业级 RAG 架构
-- LLM Application Engineering
-- 大模型应用工程化落地
+-   智能体系统设计；
+-   企业知识检索应用；
+-   大模型应用开发；
+-   AI 系统工程化建设。
 
+关注从技术原理到实际应用的完整过程，包括架构设计、功能实现、效果评估和持续优化。
 
----
+------------------------------------------------------------------------
 
-## Technical Focus
+## 技术探索方向
 
-### Agent Engineering
-
-关注：
-
-- Agent Workflow 设计
-- LangGraph 状态管理
-- Tool Calling
-- MCP 工具扩展
-- Memory 管理
-- Agent 可靠性设计
-
-
-### RAG Engineering
+### 智能体系统
 
 关注：
 
-- 文档解析与知识治理
-- Embedding 模型优化
-- Hybrid Search
-- Reranking
-- RAG Evaluation
-- 企业知识库建设
+-   任务流程设计；
+-   状态管理；
+-   工具调用；
+-   外部能力扩展；
+-   上下文管理；
+-   系统可靠性设计。
 
+------------------------------------------------------------------------
 
-### LLM Engineering
+### 企业知识应用
 
 关注：
 
-- Prompt Engineering
-- Structured Output
-- 模型调用优化
-- SFT / LoRA
-- 模型蒸馏与轻量化部署
+-   文档解析；
+-   知识整理；
+-   语义检索；
+-   内容重排序；
+-   知识库质量管理；
+-   智能问答系统建设。
 
+------------------------------------------------------------------------
 
----
+### 大模型应用
 
-## Technical Stack
+关注：
 
-### AI Framework
+-   模型能力分析；
+-   提示设计；
+-   结构化结果生成；
+-   模型调用优化；
+-   模型轻量化；
+-   推理效率提升。
 
-- LangChain
-- LangGraph
-- MCP
-- LLM API
+------------------------------------------------------------------------
 
+## 技术栈
 
-### Retrieval System
+### AI 应用开发
 
-- Milvus
-- FAISS
-- BGE-M3
-- BGE-Reranker
+-   LangChain
+-   LangGraph
+-   MCP
+-   大语言模型接口
 
+### 知识检索
 
-### Backend
+-   Milvus
+-   FAISS
+-   BGE-M3
+-   BGE-Reranker
 
-- Python
-- FastAPI
-- PostgreSQL
-- Redis
-- Docker
+### 后端开发
 
+-   Python
+-   FastAPI
+-   PostgreSQL
+-   Redis
+-   Docker
 
-### Development
+### 工程工具
 
-- Git
-- Linux
-- CI/CD
-- GitHub Actions
+-   Git
+-   Linux
+-   GitHub Actions
 
+------------------------------------------------------------------------
 
----
+## 工程理念
 
-## Engineering Philosophy
+关注 AI 系统从功能验证到稳定运行的完整过程：
 
-关注 AI 系统从 Demo 到生产环境的工程化过程：
+-   清晰的系统架构；
+-   可维护的业务流程；
+-   可评估的效果指标；
+-   可追踪的问题定位；
+-   持续优化的应用能力。
 
-- 可控的 Agent 工作流
-- 稳定的知识检索能力
-- 可评估的模型效果
-- 可维护的系统架构
-- 可持续优化的 AI 应用
+------------------------------------------------------------------------
 
+## 项目实践
 
----
+### 工业设备运维与故障诊断系统
 
-## Featured Projects
+结合智能体流程、知识检索和业务工具，辅助工业设备故障分析和维修决策。
 
-### Industrial Equipment Diagnosis Agent
+### 企业知识检索平台
 
-基于 Agent、RAG 和工具调用的工业设备智能诊断辅助系统。
+构建企业知识处理、检索和智能问答系统。
 
-### Enterprise RAG Platform
+### 知识图谱分析系统
 
-面向企业知识管理场景的检索增强生成系统。
+结合结构化知识和大模型能力，实现复杂业务信息分析。
 
-### Knowledge Graph Agent
+### 大模型优化探索
 
-结合知识图谱与 LLM 的企业智能分析系统。
+研究模型优化、轻量化部署以及实际应用中的性能提升。
 
-### LLM Optimization
+------------------------------------------------------------------------
 
-探索大模型领域适配、优化与轻量化技术。
-
-
----
-
-## Contact
-
-GitHub:
+## GitHub
 
 https://github.com/luy313412-web

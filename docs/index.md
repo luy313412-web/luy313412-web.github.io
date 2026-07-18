@@ -1,56 +1,57 @@
 ---
-layout: home
-
-hero:
-  name: AI Engineering Portfolio
-  text: Agent / RAG / LLM Engineering
-  tagline: 面向真实业务场景，记录智能系统从架构设计、工程实现到评估优化的完整实践。
-  actions:
-    - theme: brand
-      text: 浏览核心项目
-      link: /projects/industrial-agent
-    - theme: alt
-      text: 了解技术方向
-      link: /about
-
 features:
-  - icon: 🤖
-    title: Agent Engineering
-    details: 关注任务规划、工具调用、状态与记忆管理，以及复杂工作流的可靠执行。
-    link: /agent/
-    linkText: 查看 Agent 专题
-  - icon: 🔎
-    title: RAG Engineering
-    details: 覆盖数据处理、混合检索、重排、引用生成和端到端质量评估。
-    link: /rag/
-    linkText: 查看 RAG 专题
-  - icon: 🧠
-    title: LLM Engineering
-    details: 探索模型选型、提示设计、微调、推理优化、评估与可观测性。
-    link: /llm/
-    linkText: 查看 LLM 专题
+- details: 关注任务编排、工具调用、状态管理、记忆机制以及复杂业务流程中的智能化应用。
+  icon: 🤖
+  link: /agent/
+  title: 智能体系统
+- details: 关注文档处理、知识治理、语义检索和企业智能问答系统建设。
+  icon: 🔎
+  link: /rag/
+  title: 企业知识应用
+- details: 关注模型选择、提示设计、结构化输出、模型优化和应用系统稳定性。
+  icon: 🧠
+  link: /llm/
+  title: 大模型应用
+hero:
+  actions:
+  - link: /projects/industrial-agent
+    text: 浏览核心项目
+    theme: brand
+  - link: /about
+    text: 了解技术方向
+    theme: alt
+  name: AI 工程实践
+  tagline: 记录智能体、知识检索、大模型应用以及 AI 系统工程化落地过程。
+  text: 智能系统开发与大模型应用探索
+layout: home
 ---
 
 ## 核心项目
 
-### [Industrial Equipment Diagnosis Agent](/projects/industrial-agent)
+### 工业设备运维与故障诊断系统
 
-面向工业设备诊断场景的智能 Agent，整合任务规划、知识检索与外部工具，形成可追踪的分析和决策链路。
+面向工业设备场景，结合智能体流程、知识检索和业务工具，实现故障分析、维修辅助和过程管理。
 
-### [Enterprise RAG Platform](/projects/enterprise-rag)
+### 企业知识检索与流程导引平台
 
-面向企业知识库的 RAG 平台，覆盖文档解析、索引更新、混合检索、重排、引用生成与效果评估。
+围绕企业内部知识管理，建设文档处理、知识入库、智能检索和答案生成完整链路。
 
-### [Knowledge Graph Agent](/projects/knowledge-graph-agent)
+### 知识图谱辅助分析系统
 
-结合知识图谱与 Agent 推理，通过实体关系建模、多跳检索和证据聚合处理复杂知识查询。
+结合结构化知识和大模型能力，对企业业务信息进行关系分析和智能辅助。
 
-### [LLM Optimization](/projects/llm-optimization)
+### 大模型优化与应用探索
 
-围绕大语言模型的质量、延迟与成本开展系统优化，包括数据设计、模型训练、推理加速和实验评估。
+围绕模型效果、推理效率、轻量化部署和实际应用进行技术探索。
 
-## 最新文章
+------------------------------------------------------------------------
 
-- [Agent Engineering：智能体系统的设计、实现与评估](/agent/)
-- [RAG Engineering：企业知识检索与生成实践](/rag/)
-- [LLM Engineering：大模型应用与优化笔记](/llm/)
+## 技术方向
+
+持续学习和实践：
+
+-   智能体系统设计；
+-   企业知识检索；
+-   大模型应用开发；
+-   后端服务架构；
+-   数据治理与系统优化。
