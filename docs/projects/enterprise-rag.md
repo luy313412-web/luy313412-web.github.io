@@ -1,131 +1,303 @@
----
-title: Enterprise RAG Platform
-description: AI 工程项目展示模板：企业级 RAG 平台
-outline: deep
----
-
 # Enterprise RAG Platform
 
-> Status: `Planning / In Progress / Production` · Role: `TBD` · Timeline: `YYYY.MM — YYYY.MM`
+## 1. Project Overview
 
-## Overview
+Enterprise RAG Platform 是面向企业知识管理场景的大模型检索增强应用平台。
 
-<!-- 用 2～3 句话说明知识场景、RAG 的作用，以及可验证的交付结果。 -->
+项目目标是将企业内部制度、流程文档、技术资料等私有知识与大语言模型结合，实现智能检索、知识问答和流程辅助。
 
-| Item | Details |
-| --- | --- |
-| Problem | `TBD` |
-| Target users | `TBD` |
-| Knowledge scope | `TBD` |
-| Responsibilities | `TBD` |
-| Technology stack | `TBD` |
-| Outcome | `TBD（使用可验证结果，避免笼统描述）` |
+主要解决：
 
-## Business Background
+-   企业知识分散；
+-   关键词搜索无法理解语义；
+-   通用模型缺少企业知识；
+-   大模型存在幻觉风险。
 
-### Context
+------------------------------------------------------------------------
 
-<!-- 描述知识如何产生、维护和消费，以及项目启动前的使用流程。 -->
+## 2. Business Background
 
-### Pain Points
+企业内部通常存在大量：
 
-- `待填写：知识获取或检索方面的问题`
-- `待填写：答案可信度、时效性或权限方面的限制`
-- `待填写：为什么现有方案无法满足需求`
+-   制度文件；
+-   业务流程；
+-   技术文档；
+-   FAQ知识。
 
-### Goals and Non-goals
+传统搜索依赖关键词匹配，无法理解用户真实意图。
 
-| Goals | Non-goals |
-| --- | --- |
-| `TBD` | `TBD` |
+通过 RAG 架构，将企业知识库与 LLM 结合，实现基于私有知识的智能问答。
 
-## System Architecture
+------------------------------------------------------------------------
 
-<!-- 将占位节点替换为真实组件，并区分离线索引链路与在线问答链路。 -->
+## 3. System Architecture
 
-```mermaid
-flowchart LR
-    A[Knowledge Sources] --> B[Ingestion and Parsing]
-    B --> C[Indexing Pipeline]
-    C --> D[(Search Indexes)]
-    E[User Query] --> F[Query Processing]
-    F --> D
-    D --> G[Retrieval and Reranking]
-    G --> H[Context Assembly]
-    H --> I[LLM Generation]
-    I --> J[Answer with Citations]
-    F --> K[Tracing and Evaluation]
-    I --> K
+``` mermaid
+flowchart TB
+
+User[User]
+Frontend[Frontend]
+API[FastAPI]
+
+Parser[Document Parser]
+Chunk[Chunk Strategy]
+Embedding[BGE-M3]
+VectorDB[(Milvus)]
+
+Retriever[Hybrid Retrieval]
+Reranker[BGE-Reranker]
+LLM[LLM]
+
+Evaluator[RAG Evaluation]
+
+User --> Frontend
+Frontend --> API
+API --> Retriever
+
+Retriever --> VectorDB
+VectorDB --> Reranker
+Reranker --> LLM
+
+Parser --> Chunk
+Chunk --> Embedding
+Embedding --> VectorDB
+
+LLM --> Evaluator
 ```
 
-### Component Responsibilities
+------------------------------------------------------------------------
 
-| Component | Responsibility | Interface / Protocol |
-| --- | --- | --- |
-| `TBD` | `TBD` | `TBD` |
+## 4. Knowledge Ingestion Pipeline
 
-## Core Workflow
+知识入库流程：
 
-1. **Content ingestion** — `描述数据接入、解析、清洗和元数据处理。`
-2. **Index construction** — `描述切分、Embedding、索引和更新策略。`
-3. **Query processing** — `描述查询理解、改写、过滤和权限处理。`
-4. **Retrieval and generation** — `描述召回、重排、上下文构建和生成约束。`
-5. **Citation and feedback** — `描述引用验证、拒答、反馈和失败样本沉淀。`
+    Document
+     ↓
+    Parsing
+     ↓
+    Cleaning
+     ↓
+    Chunking
+     ↓
+    Embedding
+     ↓
+    Vector Storage
+     ↓
+    Quality Check
+     ↓
+    Activation
 
-### Failure Paths
+核心设计：
 
-<!-- 补充无结果、低相关性、权限冲突、知识过期和服务降级处理。 -->
+### Document Parsing
 
-## Technical Design
+支持：
 
-### Data and Indexing
+-   PDF
+-   Word
+-   Markdown
 
-<!-- 描述数据契约、Chunk 策略、索引类型、增量更新与版本管理。 -->
+### Chunk Strategy
 
-### Retrieval and Generation
+根据业务特点设计：
 
-<!-- 描述混合检索、过滤、重排、上下文预算、引用和拒答机制。 -->
+-   父子切片；
+-   语义切分；
+-   保留上下文关系。
 
-### Reliability and Observability
+### Metadata
 
-<!-- 描述链路追踪、质量监控、成本分析、权限审计和反馈闭环。 -->
+记录：
 
-### Key Decisions
+-   来源；
+-   更新时间；
+-   分类信息；
+-   权限信息。
 
-| Decision | Alternatives | Rationale | Trade-off |
-| --- | --- | --- | --- |
-| `TBD` | `TBD` | `TBD` | `TBD` |
+------------------------------------------------------------------------
 
-## Engineering Challenges
+## 5. Retrieval Architecture
 
-| Challenge | Why It Matters | Approach | Remaining Risk |
-| --- | --- | --- | --- |
-| `TBD` | `TBD` | `TBD` | `TBD` |
+采用 Hybrid Search：
 
-<!-- 建议覆盖异构文档、检索质量、权限隔离、知识更新和成本控制等真实挑战。 -->
+    User Query
 
-## Evaluation
+    ↓
 
-### Evaluation Setup
+    Query Processing
 
-<!-- 说明评测集构建、标注方式、检索与生成基线、通过标准和回归机制。 -->
+    ↓
 
-| Metric | Definition | Baseline | Result | Target |
-| --- | --- | ---: | ---: | ---: |
-| Recall@K | `TBD` | — | — | — |
-| Answer correctness | `TBD` | — | — | — |
-| Citation accuracy | `TBD` | — | — | — |
-| P95 latency | `TBD` | — | — | — |
-| Cost per query | `TBD` | — | — | — |
+    BM25 Search
 
-### Result Analysis
+    +
 
-<!-- 分析检索与生成阶段的误差来源、失败样本和结论适用边界。 -->
+    Vector Search
 
-## Lessons Learned
+    ↓
 
-- **What worked:** `TBD`
-- **What did not work:** `TBD`
-- **Key trade-off:** `TBD`
-- **Reusable insight:** `TBD`
-- **Next iteration:** `TBD`
+    Merge
+
+    ↓
+
+    Reranker
+
+    ↓
+
+    LLM
+
+优势：
+
+-   兼顾关键词匹配；
+-   提升语义召回；
+-   降低无关内容。
+
+------------------------------------------------------------------------
+
+## 6. Embedding and Reranking
+
+Embedding 使用 BGE-M3。
+
+作用：
+
+-   文本语义表示；
+-   多语言支持；
+-   长文本处理。
+
+Reranker 使用 BGE-Reranker。
+
+流程：
+
+    Top-K Retrieval
+
+    ↓
+
+    Cross Encoder Ranking
+
+    ↓
+
+    Top-N Context
+
+    ↓
+
+    LLM Generation
+
+------------------------------------------------------------------------
+
+## 7. Knowledge Quality Governance
+
+企业 RAG 的核心不仅是检索，还包括知识治理。
+
+包括：
+
+-   OCR质量检测；
+-   元数据完整性检查；
+-   重复文档检测；
+-   过期文档处理。
+
+Bad Case优化流程：
+
+    用户反馈
+
+    ↓
+
+    问题归档
+
+    ↓
+
+    原因分析
+
+    ↓
+
+    优化检索/Prompt
+
+    ↓
+
+    回归测试
+
+------------------------------------------------------------------------
+
+## 8. Context Management
+
+针对长对话：
+
+采用：
+
+-   滑动窗口；
+-   历史摘要；
+-   关键信息提取。
+
+减少无效 Token 消耗。
+
+------------------------------------------------------------------------
+
+## 9. Evaluation System
+
+评估包括：
+
+### Retrieval
+
+-   Recall@K
+-   MRR
+
+### Generation
+
+-   Faithfulness
+-   Answer Relevance
+-   Context Relevance
+
+### Engineering
+
+-   延迟；
+-   Token成本；
+-   成功率。
+
+------------------------------------------------------------------------
+
+## 10. Engineering Challenges
+
+### 为什么不用普通搜索？
+
+关键词搜索无法理解复杂语义。
+
+RAG结合：
+
+-   检索能力；
+-   大模型生成能力；
+
+提供智能知识交互。
+
+### 如何降低幻觉？
+
+通过：
+
+-   知识检索；
+-   Prompt约束；
+-   结构化输出；
+-   结果校验。
+
+### 如何保证线上稳定？
+
+通过：
+
+-   日志监控；
+-   Bad Case闭环；
+-   评测集回归；
+-   降级策略。
+
+------------------------------------------------------------------------
+
+## 11. Summary
+
+Enterprise RAG Platform
+不只是向量数据库查询，而是完整的大模型知识应用系统。
+
+核心包括：
+
+-   数据治理；
+-   检索优化；
+-   模型生成；
+-   效果评估；
+-   持续优化。
+
+实现企业知识资产向智能应用能力转化。
