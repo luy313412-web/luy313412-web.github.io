@@ -1,129 +1,102 @@
----
-title: LLM Optimization
-description: AI 工程项目展示模板：大语言模型优化
-outline: deep
----
+# LLM 优化与时序预测项目
 
-# LLM Optimization
+## 1. 项目概述
 
-> Status: `Planning / Experimenting / Production` · Role: `TBD` · Timeline: `YYYY.MM — YYYY.MM`
+该项目探索大模型能力向轻量化模型迁移的工程实践。
 
-## Overview
+针对工业设备预测场景，通过教师模型提供知识指导，将大模型推理能力迁移到轻量时序模型，实现私有化环境下的低成本部署。
 
-<!-- 用 2～3 句话说明目标任务、优化动机、方案范围和可验证结果。 -->
+核心技术：
 
-| Item | Details |
-| --- | --- |
-| Target task | `TBD` |
-| Baseline | `TBD` |
-| Optimization scope | `TBD` |
-| Responsibilities | `TBD` |
-| Technology stack | `TBD` |
-| Outcome | `TBD（使用可验证结果，避免笼统描述）` |
+-   知识蒸馏
+-   教师-学生模型
+-   时序预测
+-   轻量化部署
 
-## Business Background
+------------------------------------------------------------------------
 
-### Context
+## 2. 项目背景
 
-<!-- 描述模型所服务的任务、现有方案和优化项目的触发原因。 -->
+工业现场通常存在：
 
-### Pain Points
+-   数据规模有限；
+-   部署环境受限；
+-   大模型推理成本较高。
 
-- `待填写：质量、延迟、吞吐或成本方面的问题`
-- `待填写：数据、硬件或部署环境方面的限制`
-- `待填写：为什么现有方案无法满足需求`
+直接部署大语言模型存在：
 
-### Goals and Non-goals
+-   算力要求高；
+-   延迟较高；
+-   私有化部署困难。
 
-| Goals | Non-goals |
-| --- | --- |
-| `TBD` | `TBD` |
+因此采用大模型辅助训练轻量模型的方式。
 
-## System Architecture
+------------------------------------------------------------------------
 
-<!-- 将占位节点替换为真实组件，并区分离线实验链路与在线推理链路。 -->
+## 3. 技术方案
 
-```mermaid
-flowchart LR
-    A[Data and Tasks] --> B[Dataset Pipeline]
-    B --> C[Training or Adaptation]
-    C --> D[Candidate Model]
-    D --> E[Offline Evaluation]
-    E --> F[Model Registry]
-    G[Application Request] --> H[Inference Service]
-    F --> H
-    H --> I[Application Response]
-    H --> J[Monitoring and Feedback]
-    J --> B
-```
+整体流程：
 
-### Component Responsibilities
+    DeepSeek R1教师模型
 
-| Component | Responsibility | Interface / Protocol |
-| --- | --- | --- |
-| `TBD` | `TBD` | `TBD` |
+    ↓
 
-## Core Workflow
+    生成预测结果和软标签
 
-1. **Baseline establishment** — `描述任务、数据、模型和初始指标。`
-2. **Experiment design** — `描述假设、变量、对照组和通过标准。`
-3. **Training or adaptation** — `描述数据处理、训练或模型压缩流程。`
-4. **Evaluation and selection** — `描述质量、性能、成本评测和模型选择。`
-5. **Deployment and monitoring** — `描述发布、灰度、回滚和反馈闭环。`
+    ↓
 
-### Failure Paths
+    训练LSTM学生模型
 
-<!-- 补充训练失败、质量回退、资源不足、服务异常和回滚处理。 -->
+    ↓
 
-## Technical Design
+    工业设备时序预测
 
-### Data and Experimentation
+    ↓
 
-<!-- 描述数据来源、清洗、划分、版本、实验追踪和可复现性。 -->
+    私有化部署
 
-### Model and Inference
+------------------------------------------------------------------------
 
-<!-- 描述模型选择、训练策略、量化、缓存、批处理、并行和服务框架。 -->
+## 4. 知识蒸馏设计
 
-### Reliability and Observability
+教师模型：
 
-<!-- 描述模型版本、发布策略、质量监控、性能指标、告警和回滚。 -->
+-   DeepSeek R1
 
-### Key Decisions
+负责：
 
-| Decision | Alternatives | Rationale | Trade-off |
-| --- | --- | --- | --- |
-| `TBD` | `TBD` | `TBD` | `TBD` |
+-   复杂模式理解；
+-   生成预测知识；
+-   提供软标签。
 
-## Engineering Challenges
+学生模型：
 
-| Challenge | Why It Matters | Approach | Remaining Risk |
-| --- | --- | --- | --- |
-| `TBD` | `TBD` | `TBD` | `TBD` |
+-   LSTM
 
-<!-- 建议覆盖数据质量、实验可复现性、资源约束和质量—性能权衡等真实挑战。 -->
+负责：
 
-## Evaluation
+-   学习时序规律；
+-   快速推理；
+-   低成本部署。
 
-### Evaluation Setup
+------------------------------------------------------------------------
 
-<!-- 说明数据划分、基线模型、自动与人工评测、硬件环境和回归机制。 -->
+## 5. 工程价值
 
-| Metric | Definition | Baseline | Result | Target |
-| --- | --- | ---: | ---: | ---: |
-| Task quality | `TBD` | — | — | — |
-| P95 latency | `TBD` | — | — | — |
-| Throughput | `TBD` | — | — | — |
-| Cost per request | `TBD` | — | — | — |
+相比直接调用大模型：
 
-### Ablation and Result Analysis
+优势：
 
-<!-- 分离关键变量，说明各项优化的贡献、失败实验和结论适用边界。 -->
+-   推理成本降低；
+-   响应速度提升；
+-   支持边缘部署；
+-   满足企业私有化需求。
 
-## Lessons Learned
+------------------------------------------------------------------------
 
-- **What worked:** `TBD`
-- **What did not work:** `TBD`
-- **Key trade-off:** `TBD`
-- **Reusable insight:** `TBD`
-- **Next iteration:** `TBD`
+## 6. 总结
+
+该项目体现了大模型能力与传统深度学习模型结合的工程实践。
+
+通过知识蒸馏，将大模型知识迁移到轻量模型，实现 AI
+能力在真实工业场景中的落地。
